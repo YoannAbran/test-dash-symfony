@@ -1,0 +1,59 @@
+canvas{
+  position:absolute;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  width:100%;
+  height:150%;
+  background: linear-gradient(126deg, #55c10c, #e6c821, #f1233c, #1ba9d3);
+  background-size: 800% 800%;
+
+   -webkit-animation: AnimationName 26s ease infinite;
+   -moz-animation: AnimationName 26s ease infinite;
+   -o-animation: AnimationName 26s ease infinite;
+   animation: AnimationName 26s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+@-moz-keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+@-o-keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+@keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+
+h1{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  margin-top: 70px;
+  margin-bottom: 90px;
+  letter-spacing: 2px;
+  color: white;
+  text-decoration: underline;
+  opacity: 1;
+  animation-name: subtext;
+  animation-duration: 1s;
+}
+
+@keyframes subtext{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+label{
+  color: white;
+}

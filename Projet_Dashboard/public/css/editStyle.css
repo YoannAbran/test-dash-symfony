@@ -1,0 +1,87 @@
+/*Gradient animé*/
+canvas{
+  position: absolute;
+}
+h1{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  text-align: center;
+  color: white;
+  margin-top: 70px;
+  text-decoration: underline;
+  opacity: 1;
+  animation-name: subtext;
+  animation-duration: 1s;
+}
+
+@keyframes subtext{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+
+body{
+  margin:0;
+  padding: 0;
+  width: 100%;
+   height: 100%;
+   margin: 0px;
+   padding: 0px;
+   overflow-x: hidden;
+
+  background: linear-gradient(126deg, #55c10c, #e6c821, #f1233c, #1ba9d3);
+   background-size: 800% 800%;
+
+   -webkit-animation: AnimationName 26s ease infinite;
+   -moz-animation: AnimationName 26s ease infinite;
+   -o-animation: AnimationName 26s ease infinite;
+   animation: AnimationName 26s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+@-moz-keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+@-o-keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+@keyframes AnimationName {
+   0%{background-position:0% 5%}
+   50%{background-position:100% 96%}
+   100%{background-position:0% 5%}
+}
+
+
+/* Fomulaires */
+#formandimages{
+  padding-top: 80px;
+}
+
+
+#editform p{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 7px;
+}
+
+#editform li{
+  list-style: none;
+}
+
+#editbutton{
+  height: 45px;
+  width: 60px;
+}
+
+
+/* Images */
+#imagecontainer img{
+  width: 330px;
+  height: 330px;
+}
