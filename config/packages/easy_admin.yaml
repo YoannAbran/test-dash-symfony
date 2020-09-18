@@ -1,0 +1,19 @@
+
+easy_admin:
+    entities:
+      Livres:
+        class: App\Entity\Livres
+        list:
+          fields:
+            - { property: 'photoTicket', type: 'image', base_path: '%app.path.ticket_images%' }
+            - { property: 'photo', type: 'image', base_path: '%app.path.photo_images%' }
+
+        show:
+          fields:
+            - { property: 'photoTicket', type: 'image', base_path: '%app.path.ticket_images%' }
+            - { property: 'photo', type: 'image', base_path: '%app.path.photo_images%' }
+
+        form:
+          fields:
+            - { property: 'ticketFile', type: 'vich_image' }
+            - { property: 'photoFile', type: 'vich_image' }

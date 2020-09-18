@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * LieuxAchat
  *
- * @ORM\Table(name="lieux_achat", indexes={@ORM\Index(name="id_livre", columns={"id_livre"})})
+ * @ORM\Table(name="lieux_achat")
  * @ORM\Entity
  * @ORM\Entity (repositoryClass="App\Repository\LieuxAchatRepository")
  */
@@ -37,12 +37,10 @@ class LieuxAchat
     private $ecommerce = 'NULL';
 
     /**
-     * @var \Livres
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Livres")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_livre", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="id_livre", type="integer")
+     *
      */
     private $idLivre;
 

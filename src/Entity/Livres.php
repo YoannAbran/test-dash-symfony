@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -72,6 +74,12 @@ class Livres
     private $photoTicket;
 
     /**
+     * @Vich\UploadableField(mapping="ticket_images", fileNameProperty="image")
+     * @var File
+     */
+    private $ticketFile;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
@@ -79,11 +87,24 @@ class Livres
     private $photo;
 
     /**
+     * @Vich\UploadableField(mapping="photo_images", fileNameProperty="image")
+     * @var File
+     */
+    private $photoFile;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="categorie", type="string", length=80, nullable=false)
      */
     private $categorie;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     *
+     */
+        private $updatedAt;
 
     public function getId(): ?int
     {
@@ -173,6 +194,38 @@ class Livres
 
         return $this;
     }
+    public function setTicketFile(File $photoTicket = null)
+    {
+        $this->ticketFile = $photoTicket;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($photoTicket) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+          }
+        }
+        public function getTicketFile()
+    {
+        return $this->ticketFile;
+    }
+    public function setPhotoFile(File $photo = null)
+    {
+        $this->photoFile = $photo;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($photo) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+          }
+        }
+        public function getPhotoFile()
+    {
+        return $this->photoFile;
+    }
 
     public function getPhoto(): ?string
     {
@@ -197,6 +250,18 @@ class Livres
 
         return $this;
     }
+    public function getUpdateAt(): ?string
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(string $updateAt): self
+    {
+        $this->categorie = $updateAt;
+
+        return $this;
+    }
+
 
 
 }
