@@ -34,6 +34,10 @@ class LivresCrudController extends AbstractCrudController
             MoneyField::new('prix')->setCurrency('EUR'),
             ImageField::new('photoTicket')->onlyWhenCreating(),
             ImageField::new('photo')->onlyWhenCreating(),
+            ImageField::new('ticketFile')->onlyWhenUpdating(),
+            ImageField::new('photoFile')->onlyWhenUpdating(),
+            ImageField::new('photoTicket')->onlyOnIndex(),
+            ImageField::new('photo')->onlyOnIndex(),
         ];
     }
 
