@@ -17,3 +17,11 @@ easy_admin:
           fields:
             - { property: 'ticketFile', type: 'vich_image' }
             - { property: 'photoFile', type: 'vich_image' }
+          Admin:
+            class: App\Entity\Admin
+          LieuxAchat:
+            class: App\Entity\LieuxAchat
+          Vente:
+            class: App\Entity\Vente
+          User:
+            class: App\Entity\User
