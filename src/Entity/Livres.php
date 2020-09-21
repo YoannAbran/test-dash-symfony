@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="livres", indexes={@ORM\Index(name="nom", columns={"nom"})})
  * @ORM\Entity
  * @ORM\Entity (repositoryClass="App\Repository\LivresRepository")
+ * @Vich\Uploadable
  */
 class Livres
 {
@@ -69,12 +70,12 @@ class Livres
     /**
      * @var string
      *
-     * @ORM\Column(name="photo_ticket", type="string", length=255, nullable=false)
+     * @ORM\Column(name="photo_ticket", type="string", length=255)
      */
     private $photoTicket;
 
     /**
-     * @Vich\UploadableField(mapping="ticket_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="ticket_image", fileNameProperty="photoTicket")
      * @var File
      */
     private $ticketFile;
@@ -82,12 +83,12 @@ class Livres
     /**
      * @var string
      *
-     * @ORM\Column(name="photo", type="string", length=255, nullable=false)
+     * @ORM\Column(name="photo", type="string", length=255)
      */
     private $photo;
 
     /**
-     * @Vich\UploadableField(mapping="photo_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="photo_image", fileNameProperty="photo")
      * @var File
      */
     private $photoFile;
@@ -100,9 +101,8 @@ class Livres
     private $categorie;
 
     /**
-     * @var \DateTime
      * @ORM\Column(type="datetime")
-     *
+     *@var \DateTime
      */
         private $updatedAt;
 
@@ -188,7 +188,7 @@ class Livres
         return $this->photoTicket;
     }
 
-    public function setPhotoTicket(string $photoTicket): self
+    public function setPhotoTicket(?string $photoTicket): self
     {
         $this->photoTicket = $photoTicket;
 
@@ -206,7 +206,7 @@ class Livres
             $this->updatedAt = new \DateTime('now');
           }
         }
-        public function getTicketFile()
+        public function getTicketFile(): ?File
     {
         return $this->ticketFile;
     }
@@ -219,10 +219,10 @@ class Livres
         // otherwise the event listeners won't be called and the file is lost
         if ($photo) {
             // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+          $this->updatedAt = new \DateTime('now');
           }
         }
-        public function getPhotoFile()
+        public function getPhotoFile(): ?File
     {
         return $this->photoFile;
     }
@@ -232,7 +232,7 @@ class Livres
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
+    public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
 
@@ -250,17 +250,7 @@ class Livres
 
         return $this;
     }
-    public function getUpdateAt(): ?string
-    {
-        return $this->updateAt;
-    }
 
-    public function setUpdateAt(string $updateAt): self
-    {
-        $this->categorie = $updateAt;
-
-        return $this;
-    }
 
 
 

@@ -5,13 +5,13 @@ easy_admin:
         class: App\Entity\Livres
         list:
           fields:
-            - { property: 'photoTicket', type: 'image', base_path: '%app.path.ticket_images%' }
-            - { property: 'photo', type: 'image', base_path: '%app.path.photo_images%' }
+            - { property: 'photoTicket', type: 'image', base_path: '%app.path.ticket_image%' }
+            - { property: 'photo', type: 'image', base_path: '%%app.path.photo_image%' }
 
         show:
           fields:
-            - { property: 'photoTicket', type: 'image', base_path: '%app.path.ticket_images%' }
-            - { property: 'photo', type: 'image', base_path: '%app.path.photo_images%' }
+            - { property: 'photoTicket', type: 'image', base_path: '%app.path.ticket_image%' }
+            - { property: 'photo', type: 'image', base_path: '%app.path.photo_image%' }
 
         form:
           fields:

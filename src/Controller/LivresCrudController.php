@@ -32,12 +32,15 @@ class LivresCrudController extends AbstractCrudController
             DateTimeField::new('dateAchat'),
             DateTimeField::new('dateGarantie'),
             MoneyField::new('prix')->setCurrency('EUR'),
-            ImageField::new('photoTicket')->onlyWhenCreating(),
-            ImageField::new('photo')->onlyWhenCreating(),
-            ImageField::new('ticketFile')->onlyWhenUpdating(),
-            ImageField::new('photoFile')->onlyWhenUpdating(),
-            ImageField::new('photoTicket')->onlyOnIndex(),
-            ImageField::new('photo')->onlyOnIndex(),
+            ImageField::new('ticketFile')->hideOnIndex(),
+            ImageField::new('photoFile')->hideOnIndex(),
+            ImageField::new('photoTicket')
+            ->setBasePath('/img/ticket')
+            ->hideOnForm(),
+            ImageField::new('photo')
+            ->setBasePath('/img/photo')
+            ->hideOnForm(),
+
         ];
     }
 
