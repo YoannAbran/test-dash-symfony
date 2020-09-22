@@ -1,0 +1,23 @@
+/* public/css/admin.css */
+:root {
+    /* make the backend contents as wide as the browser window */
+
+    /* change the background color of the <body> */
+    --body-bg: white;
+    --content-panel-bg: #e52c0b;
+
+}
+/* body{
+  background-color: blue;
+
+}
+.content-header{
+  background-color: #e52c0b;
+}
+.content-panel-body{
+  background-color: #e52c0b;
+  color: blue;
+}
+pre{
+  color: blue;
+} */

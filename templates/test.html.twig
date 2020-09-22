@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<ul>
+  {% for vente in ventes %}
+    <li>{{ vente.sumPrix * vente.sumVente}}/{{ vente.sumVente }}/{{ vente.sumPrix}}/{{vente.nom}}</li>
+
+  {% endfor %}
+</ul>
+<ul>
+  {% for livre in livres %}
+    <li>{{ livre.categorie }}/{{ livre.sumPrix|round(2,'floor')}}</li>
+
+  {% endfor %}
+</ul>
+<ul>
+  {% for allVente in allVentes %}
+    <li>{{ allVente.nbreVente }}/{{ allVente.nom}} : {{ allVente.nbreVente * allVente.prixVente}}</li>
+
+  {% endfor %}
+</ul>
+<ul>
+  {% for sumCatTot in sumCatTots %}
+    <li>{{ sumCatTot.sumTotalPrix }}/</li>
+
+  {% endfor %}
+</ul>
+<ul>
+  {% for sumCatYear in sumCatYears %}
+    <li>{{ sumCatYear.prixCat }}/{{ sumCatYear.categorie}}</li>
+
+  {% endfor %}
+</ul>
+
+{% endblock %}

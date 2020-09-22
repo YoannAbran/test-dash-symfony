@@ -22,19 +22,27 @@ class VenteRepository extends ServiceEntityRepository
     // /**
     //  * @return Vente[] Returns an array of Vente objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+
+
+    public function getTotalVente()
+{
+return $this->createQueryBuilder('v')
+            ->select('SUM(v.prixVente) AS sumPrix, SUM(v.nbreVente) AS sumVente, v.nom')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+}
+
+// public function getTotalVente()
+// {
+// return $this->createQueryBuilder('v')
+//         ->select('SUM(v.prixVente) AS sumPrix, SUM(v.nbreVente) AS sumVente, v.nom')
+//         ->getQuery()
+//         ->getResult();
+// }
+
+
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Vente
@@ -47,4 +55,3 @@ class VenteRepository extends ServiceEntityRepository
         ;
     }
     */
-}

@@ -19,6 +19,39 @@ class LivresRepository extends ServiceEntityRepository
         parent::__construct($registry, Livres::class);
     }
 
+    public function getSumCat()
+{
+return $this->createQueryBuilder('l')
+            ->select('SUM(l.prix) AS sumPrix, l.categorie')
+            ->groupBy('l.categorie')
+            ->getQuery()
+            ->getResult();
+}
+    public function getSumCatYear()
+{
+return $this->createQueryBuilder('l')
+            ->select('SUM(l.prix) AS prixCat, l.categorie')
+            ->groupBy('l.categorie')
+            ->where('l.dateAchat BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \Datetime(date('Y').'-01-01'))
+            ->setParameter('fin', new \Datetime(date('Y').'-12-31'))
+            ->getQuery()
+            ->getResult();
+}
+    public function getSumCatTotalYear()
+{
+return $this->createQueryBuilder('l')
+            ->select('SUM(l.prix) AS sumTotalPrix')
+            ->where('l.dateAchat BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \Datetime(date('Y').'-01-01'))
+            ->setParameter('fin', new \Datetime(date('Y').'-12-31'))
+            ->getQuery()
+            ->getResult();
+}
+
+
+
+
     // /**
     //  * @return Livres[] Returns an array of Livres objects
     //  */
