@@ -33,8 +33,9 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Liste', 'icon class', Livres::class);
+        yield MenuItem::linkToCrud('User', 'icon class', User::class);
         // yield MenuItem::linkToRoute('creer', 'icon class', 'create');
-        yield MenuItem::linkToRoute('Register', 'fa fa-home', 'app_register');
+        yield MenuItem::linkToRoute('Register', 'icon class', 'app_register');
 
     }
     public function configureAssets(): Assets

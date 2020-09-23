@@ -4,7 +4,7 @@
 
     /* change the background color of the <body> */
     --body-bg: white;
-    --content-panel-bg: #e52c0b;
+    --content-panel-bg: grey;/*div qui contient les forms*/
 
 }
 /* body{

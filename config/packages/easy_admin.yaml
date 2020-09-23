@@ -17,11 +17,22 @@ easy_admin:
           fields:
             - { property: 'ticketFile', type: 'vich_image' }
             - { property: 'photoFile', type: 'vich_image' }
-          Admin:
-            class: App\Entity\Admin
+
+
+
           LieuxAchat:
             class: App\Entity\LieuxAchat
+
           Vente:
             class: App\Entity\Vente
+
           User:
             class: App\Entity\User
+            label: 'Utilisateurs'
+            list:
+                fields:
+                    - { property: 'roles', label: 'Roles', type: json_array}
+            form:
+                fields:
+                    - email
+                    - { property: 'roles', label: 'Roles', type: choice, type_options: {expanded: true, multiple: true, choices: {'Utilisateur':'ROLE_USER', 'Administrateur':'ROLE_ADMIN'}}}
