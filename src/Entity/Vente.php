@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,6 +51,18 @@ class Vente
      * @ORM\Column(name="nbre_vente", type="integer", nullable=false)
      */
     private $nbreVente;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TestReservation::class, mappedBy="vente")
+     */
+    private $testReservations;
+
+    public function __construct()
+    {
+        $this->testReservations = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -103,5 +117,42 @@ class Vente
         return $this;
     }
 
+
+    
+    public function __toString(): string
+        {
+            return $this->nom;
+        }
+
+    /**
+     * @return Collection|TestReservation[]
+     */
+    public function getTestReservations(): Collection
+    {
+        return $this->testReservations;
+    }
+
+    public function addTestReservation(TestReservation $testReservation): self
+    {
+        if (!$this->testReservations->contains($testReservation)) {
+            $this->testReservations[] = $testReservation;
+            $testReservation->setVente($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTestReservation(TestReservation $testReservation): self
+    {
+        if ($this->testReservations->contains($testReservation)) {
+            $this->testReservations->removeElement($testReservation);
+            // set the owning side to null (unless already changed)
+            if ($testReservation->getVente() === $this) {
+                $testReservation->setVente(null);
+            }
+        }
+
+        return $this;
+    }
 
 }

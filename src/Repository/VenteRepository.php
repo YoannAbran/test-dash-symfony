@@ -32,26 +32,4 @@ return $this->createQueryBuilder('v')
             ->getResult();
 }
 
-// public function getTotalVente()
-// {
-// return $this->createQueryBuilder('v')
-//         ->select('SUM(v.prixVente) AS sumPrix, SUM(v.nbreVente) AS sumVente, v.nom')
-//         ->getQuery()
-//         ->getResult();
-// }
-
-
     }
-
-
-    /*
-    public function findOneBySomeField($value): ?Vente
-    {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */

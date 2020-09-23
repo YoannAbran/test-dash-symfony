@@ -48,6 +48,13 @@ return $this->createQueryBuilder('l')
             ->getQuery()
             ->getResult();
 }
+    public function getStock()
+{
+return $this->createQueryBuilder('l')
+            ->select('Count(*) AS nomS, nom')
+            ->getQuery()
+            ->getResult();
+}
 
 
 

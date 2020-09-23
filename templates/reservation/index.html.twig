@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<table class="">
+
+<thead>
+  <td scope='col'>nom</td>
+  <td scope='col'>nbrevente</td>
+  <td scope='col'>stock</td>
+</thead>
+
+  {% for allVente in allVentes %}
+  <tr><td>{{ allVente.nom}}</td><td>{{ allVente.nbreVente }}</td><td> {{ allVente.stock}}</td><td>{{ allVente.id}}</td><td><a href="{{ path('reserve',{id:allVente.id}) }}">reserve</a></td></tr>
+
+  {% endfor %}
+</table>
+{% endblock %}
