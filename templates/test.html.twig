@@ -1,36 +1,59 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <ul>
   {% for vente in ventes %}
     <li>{{ vente.sumPrix * vente.sumVente}}/{{ vente.sumVente }}/{{ vente.sumPrix}}/{{vente.nom}}</li>
-
   {% endfor %}
 </ul>
+
 <ul>
   {% for livre in livres %}
     <li>{{ livre.categorie }}/{{ livre.sumPrix|round(2,'floor')}}</li>
-
   {% endfor %}
 </ul>
+
 <ul>
   {% for allVente in allVentes %}
     <li>{{ allVente.nbreVente }}/{{ allVente.nom}} : {{ allVente.nbreVente * allVente.prixVente}}</li>
-
   {% endfor %}
 </ul>
+
 <ul>
   {% for sumCatTot in sumCatTots %}
-    <li>{{ sumCatTot.sumTotalPrix }}/</li>
-
+    <li><p>Nombre de vente : <span class="font-weight-bolder">{{ sumCatTot.sumTotalPrix }}</span><br></p></li>
   {% endfor %}
 </ul>
+
 <ul>
   {% for sumCatYear in sumCatYears %}
     <li>{{ sumCatYear.prixCat }}/{{ sumCatYear.categorie}}</li>
-
   {% endfor %}
 </ul>
+
+<div class="robust-content content container-fluid">
+        <div class="content-wrapper">
+            <div id="div_chart"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(piechart, 'div_chart') }}
+            </script>
+
+        </div>
+    </div>
+<div class="robust-content content container-fluid">
+        <div class="content-wrapper">
+            <div id="div_chart2"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(barchart, 'div_chart2') }}
+            </script>
+
+        </div>
+    </div>
+
 
 {% endblock %}
