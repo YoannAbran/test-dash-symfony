@@ -48,10 +48,12 @@ return $this->createQueryBuilder('l')
             ->getQuery()
             ->getResult();
 }
+
     public function getStock()
 {
 return $this->createQueryBuilder('l')
-            ->select('Count(*) AS nomS, nom')
+            ->select('Count(l.nom) AS nomS, AVG(l.prix) AS prixMoy, l.nom')
+            ->groupBy('l.nom')
             ->getQuery()
             ->getResult();
 }

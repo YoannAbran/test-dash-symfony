@@ -38,7 +38,7 @@ class ReserveController extends AbstractController
                   $entityManager = $this->getDoctrine()->getManager();
                   $entityManager->persist($venteType);
                   $vente->setStock($stock-1);
-                  // $vente->setNbreVente($nbreVente+1);
+                  
                   $entityManager->flush();
                   return $this->redirectToRoute('reservationliste');
           }

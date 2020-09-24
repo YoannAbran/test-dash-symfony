@@ -32,4 +32,8 @@ return $this->createQueryBuilder('v')
             ->getResult();
 }
 
+// public function insertVente()
+// return $this->createQueryBuilder('v')
+//     ->
+
     }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Livres;
+use App\Entity\Vente;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -12,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\HttpFoundation\File\File;
+
 
 class LivresCrudController extends AbstractCrudController
 {
@@ -40,8 +42,7 @@ class LivresCrudController extends AbstractCrudController
             ImageField::new('photo')
             ->setBasePath('/img/photo')
             ->hideOnForm(),
-
         ];
     }
-
-}
+  
+  }
