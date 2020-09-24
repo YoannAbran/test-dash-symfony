@@ -9,10 +9,13 @@
   <td scope='col'>nom</td>
   <td scope='col'>nbrevente</td>
   <td scope='col'>stock</td>
+  <td scope='col'>id</td>
+  <td scope='col'>reserve</td>
+  <td scope='col'>valid</td>
 </thead>
 
   {% for allVente in allVentes %}
-  <tr><td>{{ allVente.nom}}</td><td>{{ allVente.nbreVente }}</td><td> {{ allVente.stock}}</td><td>{{ allVente.id}}</td><td><a href="{{ path('reserve',{id:allVente.id}) }}">reserve</a></td></tr>
+  <tr><td>{{ allVente.nom}}</td><td>{{ allVente.nbreVente }}</td><td> {{ allVente.stock}}</td><td>{{ allVente.id}}</td><td><a href="{{ path('reserve',{id:allVente.id}) }}">reserve</a></td><td><a href="{{ path('validationReserve',{id:allVente.id}) }}">Validation</a></td></tr>
 
   {% endfor %}
 </table>

@@ -16,8 +16,8 @@ class ReservationType extends AbstractType
         $builder
             ->add('dateReserve')
             ->add('dateFin')
-            ->add('nom')
-            
+            // ->add('nom')
+
 
 
         ;
